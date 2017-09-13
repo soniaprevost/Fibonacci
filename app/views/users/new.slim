@@ -1,9 +1,21 @@
 div id='marketing'
   div id='sign_up' class='card'
-    h1 Oops
-    h4 class='mt-3' This form is too simple,<br>you do a little coding and fix this !
-
     = simple_form_for @user, class:'mt-5' do |f|
-      = f.input :email, label: false, placeholder: 'Email'
-      = f.input :password, label: false, placeholder: 'Password'
-      = f.button :submit, disabled: true, class: 'btn btn-outiline-success btn-lg'
+      h4 class='mt-3' Personal Informations
+      = f.input :first_name
+      = f.input :last_name
+
+      h4 class='mt-3' Address
+      = f.input :address
+
+      h4 class='mt-3' Sign In Informations
+      = f.input :email
+      = f.input :password
+
+      h4 class='mt-3' Situation
+      = f.input :situation
+
+      h4 class='mt-3' Technical Informations
+      = f.input :pdl
+
+      = f.button :submit, class: 'btn btn-outline-success btn-lg'
