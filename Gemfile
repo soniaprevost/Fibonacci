@@ -35,6 +35,8 @@ gem 'simple_form', '~> 3.5'
 gem 'bootstrap', '~> 4.0.0.beta'
 # AASM is a continuation of the acts-as-state-machine rails plugin, built for plain Ruby objects
 gem 'aasm', '~> 4.12', '>= 4.12.2'
+# Enumerated attributes with I18n and ActiveRecord/Mongoid/MongoMapper support
+gem 'enumerize', '~> 2.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
