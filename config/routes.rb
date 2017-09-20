@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   end
 
   controller :users do
-    resources :users, only: [:create] do
+    resources :users, only: [:create, :edit, :update] do
       member do
         get '/technical_details', to: 'users#technical_details'
         put '/complete_profile', to: 'users#complete_profile'

@@ -1,4 +1,6 @@
 class UsersController < Clearance::UsersController
+  before_filter :find_user, only: [:edit, :update, :technical_details, :complete_profile]
+
   def create
     @user = user_from_params
     @user.fill_basic_details
@@ -10,12 +12,15 @@ class UsersController < Clearance::UsersController
     end
   end
 
-  def technical_details
-    @user = User.find(params[:id])
+  def update
+    if @user.update(user_params)
+      redirect_to technical_details_user_path
+    else
+      render :edit
+    end
   end
 
   def complete_profile
-    @user = User.find(params[:id])
     @user.fill_technical_details
 
     if @user.update(user_params)
@@ -52,5 +57,9 @@ class UsersController < Clearance::UsersController
 
     def user_params
       params[:user].permit(:email, :password, :first_name, :last_name, :address, :situation, :pdl)
+    end
+
+    def find_user
+      @user = User.find(params[:id])
     end
 end

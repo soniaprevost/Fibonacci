@@ -1,0 +1,13 @@
+= simple_form_for @user, class:'mt-5' do |f|
+      h4 class='mt-3' Personal Informations
+      = f.input :first_name
+      = f.input :last_name
+
+      h4 class='mt-3' Address
+      = f.input :address
+
+      h4 class='mt-3' Sign In Informations
+      = f.input :email
+      = f.input :password
+
+      = f.button :submit, class: 'btn btn-outline-success btn-lg'
