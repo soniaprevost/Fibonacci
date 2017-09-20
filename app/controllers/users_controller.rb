@@ -6,6 +6,7 @@ class UsersController < Clearance::UsersController
     @user.fill_basic_details
 
     if @user.save
+      UserMailer.welcome_email(@user).deliver_later
       redirect_to technical_details_user_path(@user)
     else
       render :new
