@@ -19,6 +19,10 @@ Rails.application.routes.draw do
 
   controller :users do
     resources :users, only: [:create] do
+      member do
+        get '/technical_details', to: 'users#technical_details'
+        put '/complete_profile', to: 'users#complete_profile'
+      end
       resource :password, only: [:create, :edit, :update]
     end
     get '/sign_up' => :new, as: :sign_up
